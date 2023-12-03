@@ -1,5 +1,6 @@
 import re
 
+
 # Part one
 def part1(lines: list):
     total = 0
@@ -13,9 +14,13 @@ def part1(lines: list):
         game, info = line.split(":")
         id = game.split(" ")[1]
         info_list = info.split(";")
-        info_list = [re.sub(r"\n","",info) for info in info_list] # Remove all new lines
-        info_list = [re.sub(",", "", info) for info in info_list] # Remove all commas
-        info_list = [info.strip() for info in info_list]  # Remove all leading and trailing whitespaces
+        info_list = [
+            re.sub(r"\n", "", info) for info in info_list
+        ]  # Remove all new lines
+        info_list = [re.sub(",", "", info) for info in info_list]  # Remove all commas
+        info_list = [
+            info.strip() for info in info_list
+        ]  # Remove all leading and trailing whitespaces
         for info in info_list:
             info_split = info.split()
             info_ints = info_split[::2]
@@ -25,7 +30,7 @@ def part1(lines: list):
                 if int(info_dict[key]) > conditions[key]:
                     can_exist = False
         if can_exist:
-          total += int(id)
+            total += int(id)
     return total
 
 
@@ -42,9 +47,13 @@ def part2(lines: list):
         res = 1
         _, info = line.split(":")
         info_list = info.split(";")
-        info_list = [re.sub(r"\n", "", info) for info in info_list]  # Remove all new lines
+        info_list = [
+            re.sub(r"\n", "", info) for info in info_list
+        ]  # Remove all new lines
         info_list = [re.sub(",", "", info) for info in info_list]  # Remove all commas
-        info_list = [info.strip() for info in info_list]  # Remove all leading and trailing whitespaces
+        info_list = [
+            info.strip() for info in info_list
+        ]  # Remove all leading and trailing whitespaces
         for info in info_list:
             info_split = info.split()
             info_ints = info_split[::2]
@@ -58,6 +67,7 @@ def part2(lines: list):
         total += res
 
     return total
+
 
 if __name__ == "__main__":
     with open("data/day2.txt") as file:
