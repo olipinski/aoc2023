@@ -9,7 +9,7 @@ def part1(lines: list):
         integers = re.findall(r"\d", line)
         number = int("".join([integers[0], integers[-1]]))
         total += number
-    print(total)
+    return total
 
 
 # Part two
@@ -38,7 +38,7 @@ def part2(lines: list):
                 integers[idx] = int_map[integer]
         number = int("".join([str(integers[0]), str(integers[-1])]))
         total += number
-    print(total)
+    return total
 
 
 if __name__ == "__main__":
