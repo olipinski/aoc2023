@@ -24,7 +24,9 @@ def part2(lines: list):
         my_numbers = line.split(":")[1].split("|")[1].strip().split()
         my_numbers = np.array(my_numbers).astype(np.int32)
         no_win_numbers = np.intersect1d(winning_numbers, my_numbers).shape[0]
-        line_multiplier[line_id: line_id + no_win_numbers] += 1 * line_multiplier[line_id-1]
+        line_multiplier[line_id : line_id + no_win_numbers] += (
+            1 * line_multiplier[line_id - 1]
+        )
 
     total = np.sum(line_multiplier)
     return total
